@@ -3,14 +3,14 @@ import { A } from '@solidjs/router'
 
 const Header: Component = () => {
   return (
-    <header class="p-4 font-semibold">
+    <header class="p-4 font-normal animate-fade-down">
       <nav class="flex items-center justify-between max-w-5xl mx-auto">
         <div>
           <A href="/">
             <img
-              class="h-10 w-auto"
+              class="h-10 w-10"
               src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-              alt="Minilink"
+              alt="minilink"
             />
           </A>
         </div>
