@@ -15,13 +15,13 @@ const Header: Component = () => {
           </A>
         </div>
 
-        <div class="flex gap-4 animate-fade-down">
+        <div class="flex gap-4">
           <A href="/">Productos</A>
           <A href="/">Características</A>
           <A href="/">Q&A</A>
         </div>
 
-        <div class="p-2 px-4 rounded-xl bg-rose-600 hover:bg-rose-800 animate-fade-down">
+        <div class="p-2 px-4 rounded-xl bg-rose-600 hover:bg-rose-800">
           <A href="/login">
             Log in
             <svg
