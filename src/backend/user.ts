@@ -16,9 +16,13 @@ interface Credentials {
 export const signup = (credentials: Credentials): void => {
   const { alias, password } = credentials
 
-  user.create(alias, password, (response) => {
+  user.create(alias, password, response => {
     if ('err' in response) {
-      notify({ status: 'error', title: 'Error al crear el usuario', text: response.err })
+      notify({
+        status: 'error',
+        title: 'Error al crear el usuario',
+        text: response.err,
+      })
     } else {
       login(credentials)
     }
@@ -28,9 +32,13 @@ export const signup = (credentials: Credentials): void => {
 export const login = (credentials: Credentials): void => {
   const { alias, password } = credentials
 
-  user.auth(alias, password, (response) => {
+  user.auth(alias, password, response => {
     if ('err' in response) {
-      notify({ status: 'error', title: 'Error al iniciar sesión', text: response.err })
+      notify({
+        status: 'error',
+        title: 'Error al iniciar sesión',
+        text: response.err,
+      })
     }
   })
 }

@@ -15,11 +15,11 @@ const Login: Component = () => {
   // form credentials
   const [credentials, SetCredentials] = createStore({
     alias: '',
-    password: ''
+    password: '',
   })
 
   // handle inputs
-  const onInput: JSX.EventHandler<HTMLInputElement, InputEvent> = (event) => {
+  const onInput: JSX.EventHandler<HTMLInputElement, InputEvent> = event => {
     const input = event.currentTarget.name
     const value = event.currentTarget.value
 
