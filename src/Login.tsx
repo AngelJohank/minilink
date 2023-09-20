@@ -29,7 +29,7 @@ const Login: Component = () => {
   }
 
   return (
-    <section class="bg-gray-900">
+    <section class="overflow-hidden bg-gray-900">
       <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0 animate-fade-up">
         <a
           href="#"
@@ -98,8 +98,8 @@ const Login: Component = () => {
                 </button>
               </div>
 
-              <p class="text-red-400 text-sm">
-                * Por favor no use algun usuario ni contraseña real
+              <p class="text-red-400 text-sm text-center">
+                * Por favor no use algun usuario ni contraseña comprometedora
               </p>
             </div>
           </div>
