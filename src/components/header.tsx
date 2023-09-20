@@ -1,10 +1,11 @@
-import type { Component } from 'solid-js'
+import { Show, type Component } from 'solid-js'
 import { A } from '@solidjs/router'
+import { isLoggedIn, logOut } from '../backend/user'
 
 const Header: Component = () => {
   return (
     <header class="p-4 font-normal animate-fade-down">
-      <nav class="flex items-center justify-between max-w-5xl mx-auto">
+      <nav class="flex items-center justify-between max-w-screen-lg mx-auto">
         <div>
           <A href="/">
             <img
@@ -22,24 +23,27 @@ const Header: Component = () => {
         </div>
 
         <div class="p-2 px-4 rounded-xl bg-rose-600 hover:bg-rose-800">
-          <A href="/login">
-            Log in
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="3"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="inline-block h-4"
-            >
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
-          </A>
+          <Show when={isLoggedIn()}>
+            <button onClick={logOut}>Cerrar sesión</button>
+          </Show>
+
+          <Show when={!isLoggedIn()}>
+            <A href="/login">
+              Iniciar Sesión
+              <svg
+                class="w-4 h-4 ml-1 inline-block"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </A>
+          </Show>
         </div>
       </nav>
     </header>
