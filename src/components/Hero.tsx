@@ -1,8 +1,8 @@
-import { Show, type Component } from "solid-js";
-import { A } from "@solidjs/router";
-import heroImg from "../assets/hero.svg";
-import { isLoggedIn } from "../backend/user";
-import Dashboard from "./Dashboard";
+import { Show, type Component } from 'solid-js'
+import { A } from '@solidjs/router'
+import heroImg from '../assets/hero.svg'
+import { isLoggedIn } from '../backend/user'
+import Dashboard from './Dashboard'
 
 const Hero: Component = () => {
   return (
@@ -57,7 +57,7 @@ const Hero: Component = () => {
         </section>
       </Show>
     </div>
-  );
-};
+  )
+}
 
-export default Hero;
+export default Hero
