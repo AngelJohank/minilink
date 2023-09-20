@@ -15,7 +15,7 @@ const Login: Component = () => {
   // form credentials
   const [credentials, SetCredentials] = createStore({
     alias: '',
-    password: '',
+    password: ''
   })
 
   // handle inputs

@@ -19,6 +19,6 @@ export const notify = (info: Notification): void => {
     gap: 20,
     distance: 20,
     type: 3,
-    position: 'right bottom',
+    position: 'right bottom'
   })
 }

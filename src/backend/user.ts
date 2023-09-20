@@ -21,7 +21,7 @@ export const signup = (credentials: Credentials): void => {
       notify({
         status: 'error',
         title: 'Error al crear el usuario',
-        text: response.err,
+        text: response.err
       })
     } else {
       login(credentials)
@@ -37,7 +37,7 @@ export const login = (credentials: Credentials): void => {
       notify({
         status: 'error',
         title: 'Error al iniciar sesión',
-        text: response.err,
+        text: response.err
       })
     }
   })
