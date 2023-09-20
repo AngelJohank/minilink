@@ -4,7 +4,7 @@ import { isLoggedIn, logout } from '../backend/user'
 
 const Header: Component = () => {
   return (
-    <header class="p-4 font-normal animate-fade-down">
+    <header class="p-4 font-normal">
       <nav class="flex items-center justify-between max-w-screen-lg mx-auto">
         <div>
           <A href="/">
