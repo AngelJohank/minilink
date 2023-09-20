@@ -1,7 +1,6 @@
-/* eslint-disable no-new */
 import { createSignal } from 'solid-js'
 import { db, user } from './gun'
-import Notify from 'simple-notify'
+import { notify } from '../utils/notify'
 
 // interface used in login functions
 interface Credentials {
@@ -19,23 +18,9 @@ export const isLoggedIn = (): boolean => username().length > 0
 export const createUser = (credentials: Credentials): void => {
   const { alias, password } = credentials
 
-  user.create(alias, password, (cb) => {
-    if ('err' in cb) {
-      new Notify({
-        status: 'error',
-        title: 'Error al crear el usuario',
-        text: cb.err,
-        effect: 'fade',
-        speed: 300,
-        showIcon: true,
-        showCloseButton: true,
-        autoclose: true,
-        autotimeout: 3000,
-        gap: 20,
-        distance: 20,
-        type: 3,
-        position: 'right bottom'
-      })
+  user.create(alias, password, (response) => {
+    if ('err' in response) {
+      notify({ status: 'error', title: 'Error al crear el usuario', text: response.err })
     } else {
       logIn(credentials)
     }
@@ -47,59 +32,17 @@ export const logIn = (credentials: Credentials): void => {
 
   user.auth(alias, password, (response) => {
     if ('err' in response) {
-      new Notify({
-        status: 'error',
-        title: 'Error al iniciar sessión',
-        text: response.err,
-        effect: 'fade',
-        speed: 300,
-        showIcon: true,
-        showCloseButton: true,
-        autoclose: true,
-        autotimeout: 3000,
-        gap: 20,
-        distance: 20,
-        type: 3,
-        position: 'right bottom'
-      })
+      notify({ status: 'error', title: 'Error al iniciar sesión', text: response.err })
     } else {
-      new Notify({
-        status: 'success',
-        title: `Bievenido ${alias}`,
-        text: 'Logueado exitosamente',
-        effect: 'fade',
-        speed: 300,
-        showIcon: true,
-        showCloseButton: true,
-        autoclose: true,
-        autotimeout: 3000,
-        gap: 20,
-        distance: 20,
-        type: 3,
-        position: 'right bottom'
-      })
+      notify({ status: 'success', title: `Bienvenido ${alias}`, text: 'Logueado exitosamente' })
     }
   })
 }
 
-export function logOut (): void {
+export const logOut = (): void => {
   user.leave()
   setUsername('')
-  new Notify({
-    status: 'success',
-    title: 'Cerraste sesión exitosamente',
-    text: 'Hasta pronto',
-    effect: 'fade',
-    speed: 300,
-    showIcon: true,
-    showCloseButton: true,
-    autoclose: true,
-    autotimeout: 3000,
-    gap: 20,
-    distance: 20,
-    type: 3,
-    position: 'right bottom'
-  })
+  notify({ status: 'success', title: 'Cerraste sesión exitosamente', text: 'Hasta pronto' })
 }
 
 // on auth notification and username update

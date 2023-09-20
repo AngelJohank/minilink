@@ -1,14 +1,14 @@
 /* @refresh reload */
 import { render } from 'solid-js/web'
 
-// tailwind setup
-import './assets/index.css'
-import 'simple-notify/dist/simple-notify.min.css'
-
 // app setup
 import { Router, Routes, Route } from '@solidjs/router'
 import App from './App'
 import Login from './Login'
+
+// tailwind setup
+import './assets/index.css'
+import 'simple-notify/dist/simple-notify.min.css'
 
 // Check root element
 const root = document.getElementById('root')
