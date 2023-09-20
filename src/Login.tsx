@@ -30,7 +30,7 @@ const Login: Component = () => {
 
   return (
     <section class="h-screen overflow-hidden bg-gray-900">
-      <div class="flex flex-col items-center justify-center h-full px-6 py-8 animate-fade-up">
+      <div class="flex flex-col items-center justify-center h-full px-6 py-8">
         <A
           href="/"
           class="flex items-center mb-6 text-2xl font-semibold text-white"
