@@ -1,6 +1,6 @@
 import { type Component, type JSX, createEffect } from 'solid-js'
 import { createStore } from 'solid-js/store'
-import { logIn, createUser, isLoggedIn } from './backend/user'
+import { login, signup, isLoggedIn } from './backend/user'
 import { A, useNavigate } from '@solidjs/router'
 
 const Login: Component = () => {
@@ -85,7 +85,7 @@ const Login: Component = () => {
                 <button
                   type="button"
                   onClick={() => {
-                    logIn(credentials)
+                    login(credentials)
                   }}
                   class="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-primary-600 hover:bg-primary-700 focus:ring-primary-800"
                 >
@@ -94,7 +94,7 @@ const Login: Component = () => {
                 <button
                   type="button"
                   onClick={() => {
-                    createUser(credentials)
+                    signup(credentials)
                   }}
                   class="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-primary-600 hover:bg-primary-700 focus:ring-primary-800"
                 >

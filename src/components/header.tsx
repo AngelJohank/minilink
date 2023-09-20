@@ -1,6 +1,6 @@
 import { Show, type Component } from 'solid-js'
 import { A } from '@solidjs/router'
-import { isLoggedIn, logOut } from '../backend/user'
+import { isLoggedIn, logout } from '../backend/user'
 
 const Header: Component = () => {
   return (
@@ -23,7 +23,7 @@ const Header: Component = () => {
 
         <div class="p-2 px-4 rounded-xl bg-rose-600 hover:bg-rose-800">
           <Show when={isLoggedIn()}>
-            <button onClick={logOut}>Cerrar sesión</button>
+            <button onClick={logout}>Cerrar sesión</button>
           </Show>
 
           <Show when={!isLoggedIn()}>
