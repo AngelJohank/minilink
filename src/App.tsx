@@ -1,6 +1,6 @@
-import type { Component } from 'solid-js'
-import Header from './components/header'
-import Hero from './components/Hero'
+import type { Component } from "solid-js";
+import Header from "./components/header";
+import Hero from "./components/Hero";
 
 const App: Component = () => {
   return (
@@ -8,7 +8,7 @@ const App: Component = () => {
       <Header />
       <Hero />
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;

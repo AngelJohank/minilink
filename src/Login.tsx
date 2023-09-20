@@ -1,32 +1,32 @@
-import { type Component, JSX, createEffect } from 'solid-js'
-import { createStore } from 'solid-js/store'
-import { logIn, createUser, isLoggedIn } from './backend/user'
-import { A, useNavigate } from '@solidjs/router'
+import { type Component, type JSX, createEffect } from "solid-js";
+import { createStore } from "solid-js/store";
+import { logIn, createUser, isLoggedIn } from "./backend/user";
+import { A, useNavigate } from "@solidjs/router";
 
 const Login: Component = () => {
   // check if the user is logged in
   createEffect(() => {
-    if (!isLoggedIn()) return
+    if (!isLoggedIn()) return;
 
-    const navigate = useNavigate()
-    navigate('/')
-  })
+    const navigate = useNavigate();
+    navigate("/");
+  });
 
   // form credentials
   const [credentials, SetCredentials] = createStore({
-    alias: '',
-    password: '',
-  })
+    alias: "",
+    password: "",
+  });
 
   // handle inputs
-  const onInput: JSX.EventHandler<HTMLInputElement, InputEvent> = event => {
-    const input = event.currentTarget.name
-    const value = event.currentTarget.value
+  const onInput: JSX.EventHandler<HTMLInputElement, InputEvent> = (event) => {
+    const input = event.currentTarget.name;
+    const value = event.currentTarget.value;
 
     if (input in credentials) {
-      SetCredentials({ ...credentials, [input]: value })
+      SetCredentials({ ...credentials, [input]: value });
     }
-  }
+  };
 
   return (
     <section class="h-screen overflow-hidden bg-gray-900">
@@ -84,14 +84,18 @@ const Login: Component = () => {
               <div class="flex justify-between">
                 <button
                   type="button"
-                  onClick={() => logIn(credentials)}
+                  onClick={() => {
+                    logIn(credentials);
+                  }}
                   class="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-primary-600 hover:bg-primary-700 focus:ring-primary-800"
                 >
                   Iniciar Sesión
                 </button>
                 <button
                   type="button"
-                  onClick={() => createUser(credentials)}
+                  onClick={() => {
+                    createUser(credentials);
+                  }}
                   class="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-primary-600 hover:bg-primary-700 focus:ring-primary-800"
                 >
                   Registrarse
@@ -106,7 +110,7 @@ const Login: Component = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;

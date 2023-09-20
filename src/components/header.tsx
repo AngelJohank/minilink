@@ -1,6 +1,6 @@
-import { Show, type Component } from 'solid-js'
-import { A } from '@solidjs/router'
-import { isLoggedIn, logOut } from '../backend/user'
+import { Show, type Component } from "solid-js";
+import { A } from "@solidjs/router";
+import { isLoggedIn, logOut } from "../backend/user";
 
 const Header: Component = () => {
   return (
@@ -17,7 +17,6 @@ const Header: Component = () => {
         </div>
 
         <div class="flex gap-4">
-          <A href="/">Productos</A>
           <A href="/">Características</A>
           <A href="/">Q&A</A>
         </div>
@@ -47,7 +46,7 @@ const Header: Component = () => {
         </div>
       </nav>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

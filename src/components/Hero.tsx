@@ -1,8 +1,8 @@
-import { Show, type Component } from 'solid-js'
-import { A } from '@solidjs/router'
-import heroImg from '../assets/hero.svg'
-import { isLoggedIn } from '../backend/user'
-import Dashboard from './Dashboard'
+import { Show, type Component } from "solid-js";
+import { A } from "@solidjs/router";
+import heroImg from "../assets/hero.svg";
+import { isLoggedIn } from "../backend/user";
+import Dashboard from "./Dashboard";
 
 const Hero: Component = () => {
   return (
@@ -16,7 +16,7 @@ const Hero: Component = () => {
             <p class="max-w-2xl mb-6 font-light text-gray-400 lg:mb-8 md:text-lg lg:text-xl animate-fade-left animate-delay-100">
               ¡Bienvenido a Minilinks, el lugar perfecto para organizar todos
               tus enlaces a tus redes sociales de manera sencilla y
-              descentralizada gracias a
+              descentralizada gracias a&nbsp
               <A
                 href="https://gun.eco/"
                 target="_blank"
@@ -57,7 +57,7 @@ const Hero: Component = () => {
         </section>
       </Show>
     </div>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;
