@@ -24,6 +24,7 @@
   "dependencies": {
     "@solidjs/router": "0.8.3",
     "gun": "0.2020.1239",
+    "simple-notify": "^0.5.5",
     "solid-js": "1.7.6"
   }
 }

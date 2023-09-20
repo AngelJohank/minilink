@@ -1,5 +1,6 @@
 import { createSignal } from 'solid-js'
 import { db, user } from './gun'
+import Notify from 'simple-notify'
 
 // interface used in login functions
 interface Credentials {
@@ -19,7 +20,21 @@ export function createUser(credentials: Credentials) {
 
   user.create(alias, password, cb => {
     if ('err' in cb) {
-      alert(cb.err)
+      new Notify({
+        status: 'error',
+        title: 'Error al crear el usuario',
+        text: cb.err,
+        effect: 'fade',
+        speed: 300,
+        showIcon: true,
+        showCloseButton: true,
+        autoclose: true,
+        autotimeout: 3000,
+        gap: 20,
+        distance: 20,
+        type: 3,
+        position: 'right bottom',
+      })
     } else {
       logIn(credentials)
     }
@@ -30,14 +45,60 @@ export function logIn(credentials: Credentials) {
   const { alias, password } = credentials
 
   user.auth(alias, password, cb => {
-    if ('err' in cb) alert(cb.err)
+    if ('err' in cb) {
+      new Notify({
+        status: 'error',
+        title: 'Error al iniciar sessión',
+        text: cb.err,
+        effect: 'fade',
+        speed: 300,
+        showIcon: true,
+        showCloseButton: true,
+        autoclose: true,
+        autotimeout: 3000,
+        gap: 20,
+        distance: 20,
+        type: 3,
+        position: 'right bottom',
+      })
+    } else {
+      new Notify({
+        status: 'success',
+        title: `Bievenido ${alias}`,
+        text: 'Logueado exitosamente',
+        effect: 'fade',
+        speed: 300,
+        showIcon: true,
+        showCloseButton: true,
+        autoclose: true,
+        autotimeout: 3000,
+        gap: 20,
+        distance: 20,
+        type: 3,
+        position: 'right bottom',
+      })
+    }
   })
 }
 
 export function logOut() {
   user.leave()
   setUsername('')
-  console.log('Signed out')
+  new Notify({
+    status: 'success',
+    title: `Cerraste sesión exitosamente`,
+    text: 'Hasta pronto',
+    effect: 'fade',
+    speed: 300,
+    showIcon: true,
+    showCloseButton: true,
+    autoclose: true,
+    autotimeout: 3000,
+    gap: 20,
+    distance: 20,
+    type: 3,
+    position: 'right bottom',
+  })
 }
 
 // on auth notification and username update

@@ -12,6 +12,7 @@ if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
 
 // tailwind setup
 import './assets/index.css'
+import 'simple-notify/dist/simple-notify.min.css'
 
 // app setup
 import { Router, Routes, Route } from '@solidjs/router'
