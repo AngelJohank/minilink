@@ -6,7 +6,7 @@ import Dashboard from './Dashboard'
 
 const Hero: Component = () => {
   return (
-    <div class="p-16 animate-fade-right" style="height: calc(100vh - 72px)">
+    <div class="p-14 animate-fade-right" style="height: calc(100vh - 72px)">
       <Show when={!isLoggedIn()} fallback={<Dashboard />}>
         <section class="flex items-center justify-between md:justify-center h-full max-w-screen-lg mx-auto">
           <div>
